@@ -50,8 +50,29 @@ exports.getOrders = async (req, res, next) => {
         if (status) {
             query.status = status;
         }
+        const orders = await Order.find(query);
+        res.json(orders);
+    } catch (error) {
+        next(error);
+    }
+};
+
+exports.getAllOrders = async (req, res, next) => {
+    try {
         const orders = await Order.find();
         res.json(orders);
+    } catch (error) {
+        next(error);
+    }
+};
+
+exports.getOrdersStatus = async (req, res, next) => {
+    try {
+        const order = await Order.findById(req.params.id).select('status');
+        if (!order) {
+            return res.status(404).json({ message: 'Pedido não encontrado' });
+        }
+        res.json({ status: order.status });
     } catch (error) {
         next(error);
     }
