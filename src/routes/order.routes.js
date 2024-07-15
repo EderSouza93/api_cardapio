@@ -10,9 +10,13 @@ router.patch('/:id/status', orderController.updateOrderStatus);
 
 // Rotas privadas (para o painel administrativo)
 router.use(authMiddleware);
-router.get('/', orderController.getAllOrders)
-router.post('/', orderController.createOrder);
-router.get('/', orderController.getOrders);
-router.patch('/:id/status', orderController.updateOrderStatus);
+router.get('/protected', orderController.getAllOrders)
+router.post('/protected', orderController.createOrder);
+router.get('/protected', orderController.getOrders);
+router.patch('/protected:id/status', orderController.updateOrderStatus);
+
+router.get('/test', authMiddleware, (req, res) => {
+    res.send({ message: 'This is a protected route', user: req.user });
+});
 
 module.exports = router;

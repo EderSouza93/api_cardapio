@@ -20,14 +20,20 @@ Este projeto é uma API para um sistema de cardápio digital que gerencia pedido
 /projeto-cardapio-digital
 |-- /src
 |   |-- /config
+|   |   |-- cors.js
 |   |   |-- database.js
 |   |-- /models
 |   |   |-- order.model.js
+|   |   |-- user.model.js
 |   |-- /controllers
+|   |   |-- auth.controller.js
 |   |   |-- order.controller.js
 |   |-- /routes
+|   |   |-- auth.routes.js
 |   |   |-- order.routes.js
-|   |-- /middlewares
+|   |-- /middleware
+|   |   |-- auth.middleware.js
+|   |-- /utils
 |   |   |-- errorHandler.js
 |-- server.js
 |-- .env
