@@ -1,21 +1,21 @@
-# Cardápio Digital - API
+# Digital Menu - API
 
-Este projeto é uma API para um sistema de cardápio digital que gerencia pedidos de restaurante, tanto para mesas no local quanto para delivery.
+This project is an API for a digital menu system that manages restaurant orders, both for in-house tables and delivery.
 
-## Funcionalidades
+## Features
 
-- Gerenciamento de pedidos para mesas e delivery
-- Controle de status dos pedidos
-- Painel administrativo para gerenciamento de pedidos
+- Order management for tables and delivery
+- Order status tracking
+- Admin panel for order management
 
-## Tecnologias Utilizadas
+## Technologies Used
 
 - Node.js
 - Express.js
 - MongoDB
 - Mongoose
 
-## Estrutura do Projeto
+## Project Structure
 ```
 /projeto-cardapio-digital
 |-- /src
@@ -41,37 +41,37 @@ Este projeto é uma API para um sistema de cardápio digital que gerencia pedido
 |-- README.md
 ```
 
-## Instalação
+## Installation
 
-1. Clone o repositório:
+1. Clone the repository:
 
 git clone https://github.com/EderSouza93/api_cardapio
 
-2. Instale as dependências:
+2. Install dependencies:
 
 cd api-cardapio
 npm install
 
-3. Configure as variáveis de ambiente:
-Crie um arquivo `.env` na raiz do projeto e adicione:
+3. Set up environment variables:
+   Create a .env file in the project root and add:
 
 MONGO_URI=sua_string_de_conexao_mongodb
 PORT=3000
 
-4. Inicie o servidor:
+4. Start the server:
 
 npm start 
 
-## Uso
+## Usage
 
-### Criar um Pedido
+### Create an Order
 
 POST `/api/orders`
 
-- Exemplo de corpo da requisição para pedido na mesa:
+- Example request body for a table order:
 ```json
 {
-"orderType": "mesa",
+"orderType": "table",
 "mesa": "12",
 "items": [
  {
@@ -82,7 +82,7 @@ POST `/api/orders`
 ]
 }
 ````
-- Exemplo para pedido de delivery:
+- Example for a delivery order::
 ```json
 {
   "orderType": "delivery",
@@ -104,37 +104,37 @@ POST `/api/orders`
 }
 ```
 
-### Listar Pedidos
+### List Orders 
 
 GET `/api/orders`
-Parâmetros de consulta opcionais:
+Optional query parameters:
 
-- `orderType`: "mesa" ou "delivery"
-- `status`: "pendente", "preparando", "pronto", "entregue", "a caminho"
+- `orderType`: "table" ou "delivery"
+- `status`: "pending", "preparing", "ready", "delivered", "on the way"
 
-Atualizar Status do Pedido
+Update Order Status
 PATCH `/api/orders/:id/status`
 
-Exemplo de corpo da requisição:
+Example request body:
 
 ```json
 {
-  "status": "preparando"
+  "status": "Preparing"
 }
 ````
-### Contribuição
+### Contribution
 
-Contribuições são bem-vindas! Por favor, siga estes passos:
+Contributions are welcome! Please follow these steps:
 
-1. Faça um fork do projeto
-2. Crie uma branch para sua feature (`git checkout -b feature/NovaFuncionalidade`)
-3. Faça commit das suas mudanças (`git commit -m 'Adiciona nova funcionalidade'`)
-4. Faça push para a branch (`git push origin feature/NovaFuncionalidade`)
-5. Abra um Pull Request
+1. Fork the project
+2. Create a branch for your feature (`git checkout -b feature/NewFeature`)
+3. Commit your changes (`git commit -m 'Add new feature'`)
+4. Push to the branch (`git push origin feature/NewFeature`)
+5. Open a Pull Request
 
-### Licença
-Este projeto está licenciado sob a Licença MIT - veja o arquivo LICENSE.md para detalhes.
-Contato
+### License
+This project is licensed under the MIT License - see the LICENSE.md file for details.
+Contact
 Eder Souza - ederdev93@gmail.com
 
-Link do Projeto: https://github.com/EderSouza93/api_cardapio
+Project Link: https://github.com/EderSouza93/api_cardapio
